@@ -14,3 +14,15 @@
 body {
   @apply bg-zinc-50 dark:bg-zinc-950;
 }
+
+.center-everything {
+  @apply flex items-center justify-center;
+}
+
+.nav-link {
+  @apply p-2.5 text-sm text-zinc-600 transition flex items-center gap-2 rounded-lg hover:bg-zinc-100;
+}
+
+.nav-link.active {
+  @apply bg-blue-500 text-white dark:bg-zinc-900 font-medium;
+}
