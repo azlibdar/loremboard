@@ -15,6 +15,10 @@ body {
   @apply bg-zinc-50 dark:bg-zinc-950;
 }
 
+.container-type {
+  container-type: inline-size;
+}
+
 .center-everything {
   @apply flex items-center justify-center;
 }
