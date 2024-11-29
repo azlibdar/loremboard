@@ -1,11 +1,14 @@
 import { NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import LogoLight from "../../assets/logo-mark-light.svg";
+import LogoDark from "../../assets/logo-mark-dark.svg";
 import { navLinks } from "../../constants";
 import { BadgePercent, BarChart2, ChevronsUpDownIcon, LayoutGrid, Settings, ShoppingCart, TrendingUp, Users, X } from "lucide-react";
 import useIsMobile from "../../hooks/useIsMobile";
 import { cn } from "../../lib/utils";
 import IconButton from "../common/IconButton";
+import { useContext } from "react";
+import ThemeContext from "../../Context/ThemeContext";
 
 interface Props {
   isMobileSidebarOpen: boolean;
@@ -14,6 +17,7 @@ interface Props {
 }
 
 const Sidebar = ({ isMobileSidebarOpen, onClose, onMobileSidebarClose }: Props) => {
+  const { theme } = useContext(ThemeContext);
   const { isMobile } = useIsMobile();
 
   // Function to get the icon based on the icon name
@@ -66,7 +70,7 @@ const Sidebar = ({ isMobileSidebarOpen, onClose, onMobileSidebarClose }: Props) 
           )}
         >
           <div className="p-5 flex items-center justify-between">
-            <img src={LogoLight} alt="logo" className="w-12 min-w-12" />
+            <img src={theme === "dark" ? LogoDark : LogoLight} alt="logo" className="w-12 min-w-12" />
             {isMobile && (
               <IconButton onClick={onMobileSidebarClose} size="compact" variant="tertiary">
                 <X size={20} strokeWidth={1.75} />
