@@ -64,7 +64,7 @@ const Sidebar = ({ isMobileSidebarOpen, onClose, onMobileSidebarClose }: Props) 
           variants={sidebarVariants}
           className={cn(
             "fixed md:static z-50 top-0 left-0 h-full",
-            "flex flex-col bg-white border-r border-zinc-100",
+            "flex flex-col bg-white dark:bg-zinc-900 border-r border-zinc-100 dark:border-zinc-800",
             isMobile ? "w-full" : "w-72 min-w-72",
             isMobile && !isMobileSidebarOpen ? "hidden" : ""
           )}
@@ -78,8 +78,8 @@ const Sidebar = ({ isMobileSidebarOpen, onClose, onMobileSidebarClose }: Props) 
             )}
           </div>
 
-          <div className="p-2.5 border-b border-zinc-100">
-            <button className="w-full p-2.5 flex items-center justify-between rounded-lg transition hover:bg-zinc-100">
+          <div className="p-2.5 border-b border-zinc-100 dark:border-zinc-800">
+            <button className="w-full p-2.5 flex items-center justify-between rounded-lg transition hover:bg-zinc-100 dark:hover:bg-zinc-800">
               <div className="flex items-center gap-2">
                 <img
                   src="https://avatars.githubusercontent.com/u/121456353?v=4"
@@ -87,8 +87,8 @@ const Sidebar = ({ isMobileSidebarOpen, onClose, onMobileSidebarClose }: Props) 
                   className="w-8 min-w-8 aspect-square rounded-full"
                 />
                 <div className="text-left">
-                  <h3 className="text-sm font-medium text-zinc-950">Azlan Ibrahim</h3>
-                  <p className="text-xs text-zinc-600">azlibdar@gmail.com</p>
+                  <h3 className="text-sm font-medium text-zinc-950 dark:text-zinc-100">Azlan Ibrahim</h3>
+                  <p className="text-xs text-zinc-600 dark:text-zinc-300">azlibdar@gmail.com</p>
                 </div>
               </div>
               <ChevronsUpDownIcon size={20} strokeWidth={1.75} className="text-zinc-600" />
