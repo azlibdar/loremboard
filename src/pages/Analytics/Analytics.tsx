@@ -1,7 +1,8 @@
+import AreaChart from "../../components/chart/AreaChart";
 import StatsCard from "../../components/chart/StatsCard";
 import Section from "../../components/layout/Section";
 import Heading from "../../components/Typography/Heading";
-import { analyticsStats } from "./data";
+import { analyticsStats, revenueVsTarget } from "./data";
 
 const Analytics = () => {
   return (
@@ -11,6 +12,9 @@ const Analytics = () => {
         {analyticsStats.map((stat) => (
           <StatsCard key={stat.title} title={stat.title} value={stat.value} change={stat.change} />
         ))}
+      </div>
+      <div className="w-full grid grid-cols-1">
+        <AreaChart data={revenueVsTarget} />
       </div>
     </Section>
   );

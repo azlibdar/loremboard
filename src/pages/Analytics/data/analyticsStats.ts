@@ -15,7 +15,7 @@ export const analyticsStats = [
     change: -2.5,
   },
   {
-    title: "Avg Session Time",
+    title: "Avg S.T",
     value: "3m 45s",
     change: +1.8,
   },
