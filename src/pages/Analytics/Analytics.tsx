@@ -1,8 +1,10 @@
 import AreaChart from "../../components/chart/AreaChart";
+import LineChart from "../../components/chart/LineChart";
+import PieChart from "../../components/chart/PieChart";
 import StatsCard from "../../components/chart/StatsCard";
 import Section from "../../components/layout/Section";
 import Heading from "../../components/Typography/Heading";
-import { analyticsStats, revenueVsTarget } from "./data";
+import { analyticsStats, regionSalesData, revenueVsTarget, userRetentionData } from "./data";
 
 const Analytics = () => {
   return (
@@ -15,6 +17,10 @@ const Analytics = () => {
       </div>
       <div className="w-full grid grid-cols-1">
         <AreaChart data={revenueVsTarget} />
+      </div>
+      <div className="@contaner w-full py-4 grid grid-cols-1 @[900px]:grid-cols-2 gap-2">
+        <LineChart data={userRetentionData} />
+        <PieChart data={regionSalesData} shape="donut" />
       </div>
     </Section>
   );

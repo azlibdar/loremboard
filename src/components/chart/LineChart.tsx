@@ -25,19 +25,8 @@ const LineChart = ({ data }: Props) => {
     <ChartWrapper title={data.title}>
       <RechartsLineChart data={data.data}>
         <CartesianGrid strokeDasharray="3 3" stroke="currentColor" className="text-zinc-300 dark:text-zinc-700" />
-        <XAxis
-          dataKey="name"
-          className="text-xs text-zinc-400 dark:text-zinc-500"
-          axisLine={{ stroke: "currentColor" }}
-          tick={{ fill: "currentColor" }}
-          tickLine={{ stroke: "currentColor" }}
-        />
-        <YAxis
-          className="text-xs text-zinc-400 dark:text-zinc-500"
-          axisLine={{ stroke: "currentColor" }}
-          tick={{ fill: "currentColor" }}
-          tickLine={{ stroke: "currentColor" }}
-        />
+        <XAxis dataKey="name" className="text-xs text-zinc-400 dark:text-zinc-500" axisLine={{ stroke: "currentColor" }} tickLine={false} />
+        <YAxis className="text-xs text-zinc-400 dark:text-zinc-500" axisLine={{ stroke: "currentColor" }} tickLine={false} />
         <Tooltip
           cursor={false}
           contentStyle={{
