@@ -1,8 +1,9 @@
 import LineChart from "../../components/chart/LineChart";
+import PieChart from "../../components/chart/PieChart";
 import StatsCard from "../../components/chart/StatsCard";
 import Section from "../../components/layout/Section";
 import Heading from "../../components/Typography/Heading";
-import { overviewStats, salesOverviewData } from "./data";
+import { categoryOverviewData, overviewStats, salesOverviewData } from "./data";
 
 const Overview = () => {
   return (
@@ -13,8 +14,9 @@ const Overview = () => {
           <StatsCard key={stat.title} title={stat.title} value={stat.value} change={stat.change} />
         ))}
       </div>
-      <div className="w-full grid grid-cols-2 gap-2">
+      <div className="@contaner w-full grid grid-cols-1 @[900px]:grid-cols-2 gap-2">
         <LineChart data={salesOverviewData} />
+        <PieChart data={categoryOverviewData} shape="donut" />
       </div>
     </Section>
   );
