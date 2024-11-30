@@ -1,25 +1,26 @@
-import { Cell, Pie, PieChart as RechartPieChart, Tooltip } from "recharts";
+import { Bar, CartesianGrid, Cell, BarChart as RechartBarChart, Tooltip, XAxis, YAxis } from "recharts";
 import ChartWrapper from "./ChartWrapper";
 import { useContext } from "react";
 import ThemeContext from "../../Context/ThemeContext";
 import { COLORS } from "./colors";
 
-interface CategoryData {
+interface SalesData {
   name: string;
   value: number;
 }
 
 interface ChartData {
   title: string;
-  data: CategoryData[];
+  xAxisLabel: string;
+  yAxisLabel: string;
+  data: SalesData[];
 }
 
 interface Props {
   data: ChartData;
-  shape?: "default" | "donut";
 }
 
-const PieChart = ({ data, shape = "default" }: Props) => {
+const BarChart = ({ data }: Props) => {
   const { theme } = useContext(ThemeContext);
   const currentColors = theme === "dark" ? COLORS.dark : COLORS.light;
 
@@ -29,23 +30,21 @@ const PieChart = ({ data, shape = "default" }: Props) => {
 
   return (
     <ChartWrapper title={data.title}>
-      <RechartPieChart>
-        <Pie
-          data={data.data}
-          cx={"50%"}
-          cy={"50%"}
-          labelLine={false}
-          outerRadius={100}
-          innerRadius={shape === "donut" ? 60 : 0}
-          stroke={theme === "dark" ? "#18181b" : "#ffffff"}
-          dataKey="value"
-          strokeWidth={2}
-          label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-        >
-          {data.data.map((_, index) => (
-            <Cell key={`cell-${index}`} fill={getColor(index)} fontSize={"0.75rem"} fontWeight={"450"} />
-          ))}
-        </Pie>
+      <RechartBarChart data={data.data}>
+        <CartesianGrid strokeDasharray="3 3" stroke="currentColor" className="text-zinc-300 dark:text-zinc-700" />
+        <XAxis
+          dataKey="name"
+          className="text-xs text-zinc-400 dark:text-zinc-500"
+          axisLine={{ stroke: "currentColor" }}
+          tick={{ fill: "currentColor" }}
+          tickLine={{ stroke: "currentColor" }}
+        />
+        <YAxis
+          className="text-xs text-zinc-400 dark:text-zinc-500"
+          axisLine={{ stroke: "currentColor" }}
+          tick={{ fill: "currentColor" }}
+          tickLine={{ stroke: "currentColor" }}
+        />
         <Tooltip
           cursor={false}
           contentStyle={{
@@ -62,9 +61,14 @@ const PieChart = ({ data, shape = "default" }: Props) => {
             color: theme === "dark" ? "#f4f4f5" : "#18181b",
           }}
         />
-      </RechartPieChart>
+        <Bar dataKey={"value"} radius={[4, 4, 0, 0]}>
+          {data.data.map((_, index) => (
+            <Cell key={`cell-${index}`} fill={getColor(index)} />
+          ))}
+        </Bar>
+      </RechartBarChart>
     </ChartWrapper>
   );
 };
 
-export default PieChart;
+export default BarChart;
