@@ -56,7 +56,7 @@ const COLORS = {
 const AreaChart = ({ data }: AreaChartProps) => {
   const { theme } = useContext(ThemeContext);
   const currentColors = theme === "dark" ? COLORS.dark : COLORS.light;
-  const [selectedPeriod, setSelectedPeriod] = useState<"weekly" | "monthly" | "yearly">("yearly");
+  const [selectedPeriod, setSelectedPeriod] = useState<"weekly" | "monthly" | "yearly">("monthly");
 
   const handleSelectPeriod = (value: string) => {
     setSelectedPeriod(value as "weekly" | "monthly" | "yearly");

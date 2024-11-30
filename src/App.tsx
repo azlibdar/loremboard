@@ -17,7 +17,7 @@ const App = () => {
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="w-full h-screen overflow-hidden flex">
         <Sidebar isMobileSidebarOpen={isMobileSidebarOpen} onMobileSidebarClose={toggleMobileSidebar} />
-        <main className="w-full flex flex-col overflow-y-auto">
+        <main className="w-full flex flex-col overflow-y-auto overflow-x-hidden">
           <Header onMobileSidebarOpen={toggleMobileSidebar} />
           <Outlet />
         </main>
