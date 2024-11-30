@@ -1,7 +1,8 @@
+import LineChart from "../../components/chart/LineChart";
 import StatsCard from "../../components/chart/StatsCard";
 import Section from "../../components/layout/Section";
 import Heading from "../../components/Typography/Heading";
-import { overviewStats } from "./data";
+import { overviewStats, salesOverviewData } from "./data";
 
 const Overview = () => {
   return (
@@ -11,6 +12,9 @@ const Overview = () => {
         {overviewStats.map((stat) => (
           <StatsCard key={stat.title} title={stat.title} value={stat.value} change={stat.change} />
         ))}
+      </div>
+      <div className="w-full grid grid-cols-2 gap-2">
+        <LineChart data={salesOverviewData} />
       </div>
     </Section>
   );
