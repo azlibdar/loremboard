@@ -44,12 +44,12 @@ const SELECT_DATA = [
 
 const COLORS = {
   light: {
-    target: { start: "#f43f5e", end: "#f43f5e90" },
-    revenue: { start: "#10b981", end: "#10b98190" },
+    target: { start: "#f43f5e", end: "#f43f5e" },
+    revenue: { start: "#10b981", end: "#10b981" },
   },
   dark: {
-    target: { start: "#fb7185", end: "#fb718590" },
-    revenue: { start: "#34d399", end: "#34d3990" },
+    target: { start: "#fb7185", end: "#fb7185" },
+    revenue: { start: "#34d399", end: "#34d39" },
   },
 };
 
@@ -130,8 +130,22 @@ const AreaChart = ({ data }: AreaChartProps) => {
           layout="horizontal"
           verticalAlign="bottom"
         />
-        <Area type="linear" dataKey="target" stroke={currentColors.target.start} fill="url(#targetGradient)" fillOpacity={0.6} />
-        <Area type="linear" dataKey="revenue" stroke={currentColors.revenue.start} fill="url(#revenueGradient)" fillOpacity={0.6} />
+        <Area
+          type="linear"
+          dataKey="target"
+          strokeWidth={1}
+          stroke={currentColors.target.start}
+          fill="url(#targetGradient)"
+          fillOpacity={0.6}
+        />
+        <Area
+          type="linear"
+          dataKey="revenue"
+          strokeWidth={1}
+          stroke={currentColors.revenue.start}
+          fill="url(#revenueGradient)"
+          fillOpacity={0.6}
+        />
       </RechartAreaChart>
     </ChartWrapper>
   );
