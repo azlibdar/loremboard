@@ -5,7 +5,7 @@ export const overviewStats = [
     change: +5.4,
   },
   {
-    title: "Active users",
+    title: "New users",
     value: "3,450",
     change: -1.2,
   },
