@@ -20,11 +20,6 @@ export const navLinks = [
     icon: "LayoutGrid",
   },
   {
-    title: "Purchase Orders",
-    to: "/orders",
-    icon: "ShoppingCart",
-  },
-  {
     title: "User Directory",
     to: "/users",
     icon: "Users",

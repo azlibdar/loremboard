@@ -8,7 +8,6 @@ import Overview from "./pages/Overview/Overview.tsx";
 import Products from "./pages/Products/Products.tsx";
 import Users from "./pages/Users/Users.tsx";
 import Revenue from "./pages/Revenue/Revenue.tsx";
-import Orders from "./pages/Orders/Orders.tsx";
 import Analytics from "./pages/Analytics/Analytics.tsx";
 import Settings from "./pages/Settings/Settings.tsx";
 
@@ -33,10 +32,6 @@ const router = createBrowserRouter([
       {
         path: "revenue",
         element: <Revenue />,
-      },
-      {
-        path: "orders",
-        element: <Orders />,
       },
       {
         path: "analytics",
