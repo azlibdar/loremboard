@@ -11,7 +11,7 @@ export const navLinks = [
   },
   {
     title: "Revenue",
-    to: "/sales",
+    to: "/revenue",
     icon: "BadgePercentage",
   },
   {

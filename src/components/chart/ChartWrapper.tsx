@@ -29,7 +29,7 @@ const ChartWrapper = ({ title, selectData, onSelect, selectValue, children }: Ch
               onChange={(e) => onSelect && onSelect(e.target.value)}
               value={selectValue && selectValue}
               id="chart-select"
-              className="appearance-none bg-white dark:bg-zinc-900 py-2.5 px-4 pr-8 ring-1 ring-inset ring-zinc-200 dark:ring-zinc-700 rounded-lg text-zinc-950 dark:text-zinc-100 text-sm outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600"
+              className="appearance-none cursor-pointer bg-white dark:bg-zinc-900 py-2.5 px-4 pr-8 ring-1 ring-inset ring-zinc-200 dark:ring-zinc-700/60 rounded-lg text-zinc-950 dark:text-zinc-100 text-sm outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600"
             >
               {selectData.map((item) => (
                 <option key={item.value} value={item.value}>

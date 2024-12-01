@@ -6,19 +6,19 @@ import ThemeContext from "../../Context/ThemeContext";
 type WeeklyDataPoint = {
   day: string;
   revenue: number;
-  target: number;
+  target?: number;
 };
 
 type MonthlyDataPoint = {
   week: string;
   revenue: number;
-  target: number;
+  target?: number;
 };
 
 type YearlyDataPoint = {
   month: string;
   revenue: number;
-  target: number;
+  target?: number;
 };
 
 interface PeriodData {
@@ -88,10 +88,12 @@ const AreaChart = ({ data }: AreaChartProps) => {
     <ChartWrapper title={data.title} selectData={SELECT_DATA} selectValue={selectedPeriod} onSelect={handleSelectPeriod}>
       <RechartAreaChart data={getDataKey()}>
         <defs>
-          <linearGradient id="targetGradient" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor={currentColors.target.start} stopOpacity={theme === "dark" ? 1 : 0.6} />
-            <stop offset="100%" stopColor={currentColors.target.end} stopOpacity={0} />
-          </linearGradient>
+          {data.periods.monthly?.map((data) => () => data.target) && (
+            <linearGradient id="targetGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="5%" stopColor={currentColors.target.start} stopOpacity={theme === "dark" ? 1 : 0.6} />
+              <stop offset="100%" stopColor={currentColors.target.end} stopOpacity={0} />
+            </linearGradient>
+          )}
           <linearGradient id="revenueGradient" x1="0" y1="0" x2="0" y2="1">
             <stop offset="5%" stopColor={currentColors.revenue.start} stopOpacity={theme === "dark" ? 1 : 0.6} />
             <stop offset="100%" stopColor={currentColors.revenue.end} stopOpacity={0} />
@@ -130,14 +132,16 @@ const AreaChart = ({ data }: AreaChartProps) => {
           layout="horizontal"
           verticalAlign="bottom"
         />
-        <Area
-          type="linear"
-          dataKey="target"
-          strokeWidth={1}
-          stroke={currentColors.target.start}
-          fill="url(#targetGradient)"
-          fillOpacity={0.6}
-        />
+        {data.periods.monthly?.map((data) => data.target) && (
+          <Area
+            type="linear"
+            dataKey="target"
+            strokeWidth={1}
+            stroke={currentColors.target.start}
+            fill="url(#targetGradient)"
+            fillOpacity={0.6}
+          />
+        )}
         <Area
           type="linear"
           dataKey="revenue"
