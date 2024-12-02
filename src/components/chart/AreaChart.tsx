@@ -37,9 +37,9 @@ interface AreaChartProps {
 }
 
 const SELECT_DATA = [
-  { value: "weekly", label: "Weekly" },
-  { value: "monthly", label: "Monthly" },
-  { value: "yearly", label: "Yearly" },
+  { value: "weekly", label: "weekly" },
+  { value: "monthly", label: "monthly" },
+  { value: "yearly", label: "yearly" },
 ];
 
 const COLORS = {
@@ -56,10 +56,10 @@ const COLORS = {
 const AreaChart = ({ data }: AreaChartProps) => {
   const { theme } = useContext(ThemeContext);
   const currentColors = theme === "dark" ? COLORS.dark : COLORS.light;
-  const [selectedPeriod, setSelectedPeriod] = useState<"weekly" | "monthly" | "yearly">("monthly");
+  const [selectedPeriod, setSelectedPeriod] = useState("monthly");
 
   const handleSelectPeriod = (value: string) => {
-    setSelectedPeriod(value as "weekly" | "monthly" | "yearly");
+    setSelectedPeriod(value);
   };
 
   const getXaxisValue = (): string => {
@@ -69,6 +69,8 @@ const AreaChart = ({ data }: AreaChartProps) => {
       case "monthly":
         return "week";
       case "yearly":
+        return "month";
+      default:
         return "month";
     }
   };

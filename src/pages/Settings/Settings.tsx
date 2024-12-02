@@ -1,5 +1,5 @@
 const Settings = () => {
-  return <div>Settings</div>;
+  return <div className="p-8">Create this page...</div>;
 };
 
 export default Settings;
