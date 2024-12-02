@@ -11,8 +11,8 @@ interface ChartWrapperProps {
   title: string;
   children: ReactElement;
   selectData?: SelectDataProps[];
-  onSelect: (value: string) => void;
-  selectValue: string;
+  onSelect?: (value: string) => void;
+  selectValue?: string;
 }
 
 const ChartWrapper = ({ title, selectData, onSelect, selectValue, children }: ChartWrapperProps) => {
