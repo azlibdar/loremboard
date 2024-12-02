@@ -6,7 +6,7 @@ Welcome to the most beautiful dashboard that doesn't actually do anything real! 
 
 <br>
 
-<!-- Image here -->
+![Image](https://github.com/user-attachments/assets/f4c8a776-75df-48cc-a1f3-3bd72576a53e)
 
 <br>
 
