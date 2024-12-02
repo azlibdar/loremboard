@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import LogoLight from "../../assets/logo-mark-light.svg";
 import LogoDark from "../../assets/logo-mark-dark.svg";
@@ -13,12 +13,19 @@ import ThemeContext from "../../Context/ThemeContext";
 interface Props {
   isMobileSidebarOpen: boolean;
   onMobileSidebarClose: () => void;
-  onClose?: () => void;
 }
 
-const Sidebar = ({ isMobileSidebarOpen, onClose, onMobileSidebarClose }: Props) => {
+const Sidebar = ({ isMobileSidebarOpen, onMobileSidebarClose }: Props) => {
   const { theme } = useContext(ThemeContext);
   const { isMobile } = useIsMobile();
+  const navigate = useNavigate();
+
+  const handleNavigate = (to: string) => {
+    navigate(to);
+    if (isMobile) {
+      onMobileSidebarClose();
+    }
+  };
 
   // Function to get the icon based on the icon name
   const getIcon = (iconName: string) => {
@@ -97,7 +104,7 @@ const Sidebar = ({ isMobileSidebarOpen, onClose, onMobileSidebarClose }: Props) 
 
           <div className="h-full flex gap-2.5 flex-col overflow-y-auto px-2.5 py-5">
             {navLinks.map((link) => (
-              <NavLink key={link.to} to={link.to} className="nav-link" onClick={isMobile ? onClose : undefined}>
+              <NavLink to={link.to} className="nav-link" onClick={() => handleNavigate(link.to)}>
                 <span className="center-everything">{getIcon(link.icon)}</span>
                 {link.title}
               </NavLink>
